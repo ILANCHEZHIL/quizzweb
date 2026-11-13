@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuizX - Online Quiz Registration</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f6ff;color:#17203b}
+header{background:#fff;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 12px #17203b12}
+.logo{font-size:25px;font-weight:800;color:#5946dc}
+nav a{margin-left:25px;text-decoration:none;color:#34405d;font-weight:600}
+.hero{padding:75px 8%;background:linear-gradient(120deg,#211b57,#5743d9);color:white;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.hero-content{max-width:600px}
+.hero h1{font-size:48px;line-height:1.15;margin:18px 0}
+.hero p{color:#e0ddff;line-height:1.7}
+.tag{background:#ffffff20;padding:9px 15px;border-radius:30px;display:inline-block}
+.btn{display:inline-block;border:0;border-radius:9px;background:#ffcf45;color:#24204e;padding:14px 23px;font-weight:bold;cursor:pointer;text-decoration:none;margin-top:25px}
+.hero-art{font-size:120px;background:#ffffff18;border-radius:30px;padding:40px}
+section{padding:55px 8%}
+.section-title{text-align:center;font-size:30px;margin-bottom:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+.card{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px #17203b0b}
+.card h3{margin:12px 0}
+.card p{color:#65708a;line-height:1.6}
+.icon{font-size:32px}
+.form-wrap{max-width:720px;margin:auto;background:white;padding:32px;border-radius:18px;box-shadow:0 8px 30px #17203b12}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+label{font-weight:600;font-size:14px}
+input,select{padding:13px;border:1px solid #dce0ed;border-radius:8px;font-size:15px;width:100%}
+input:focus,select:focus{outline:2px solid #7766e8;border-color:transparent}
+.submit{width:100%;padding:15px;background:#5946dc;color:white;border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:22px}
+#teamFields{display:none}
+#success{display:none;text-align:center;padding:30px}
+#success h2{color:#24965c;margin:15px}
+footer{text-align:center;background:#211b57;color:#ddd;padding:25px}
+@media(max-width:650px){
+ nav{display:none}.hero{padding:55px 7%}.hero h1{font-size:36px}
+ .hero-art{font-size:75px;padding:25px}.form-grid{grid-template-columns:1fr}
+ .field.full{grid-column:auto}.form-wrap{padding:22px}
+}
+@media print {
+ header, .hero, #about, section:not(#register), footer, .submit, .btn {display:none!important}
+ body{background:white}
+ .form-wrap{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">QuizX.</div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#register">Register</a>
+ </nav>
+</header>
+<div class="hero" id="home">
+ <div class="hero-content">
+  <span class="tag">🏆 National Online Quiz Competition</span>
+  <h1>Challenge Your Mind.<br>Win Big!</h1>
+  <p>Test your knowledge, compete with talented participants
+  and showcase your skills. Register now and be part of the challenge.</p>
+  <a href="#register" class="btn">Register Now →</a>
+ </div>
+ <div class="hero-art">🧠💡</div>
+</div>
+<section id="about">
+ <h2 class="section-title">Competition Details</h2>
+ <div class="cards">
+  <div class="card"><div class="icon">📅</div><h3>Quiz Date</h3><p>To be announced</p></div>
+  <div class="card"><div class="icon">⏱️</div><h3>Duration</h3><p>30 Minutes</p></div>
+  <div class="card"><div class="icon">👥</div><h3>Participation</h3><p>Individual or Team</p></div>
+  <div class="card"><div class="icon">🎓</div><h3>Certificate</h3><p>For eligible participants</p></div>
+ </div>
+</section>
+<section>
+ <h2 class="section-title">Why Participate?</h2>
+ <div class="cards">
+  <div class="card"><div class="icon">🧩</div><h3>Test Knowledge</h3><p>Explore your knowledge through interesting questions.</p></div>
+  <div class="card"><div class="icon">🏅</div><h3>Win Recognition</h3><p>Showcase your talent and compete with others.</p></div>
+  <div class="card"><div class="icon">🌟</div><h3>Learn & Grow</h3><p>Improve your skills and gain experience.</p></div>
+ </div>
+</section>
+<section id="register">
+ <h2 class="section-title">Participant Registration</h2>
+ <div class="form-wrap">
+  <form id="registrationForm">
+   <div class="form-grid">
+    <div class="field"><label>Full Name *</label><input name="name" required placeholder="Enter your name"></div>
+    <div class="field"><label>Email Address *</label><input name="email" type="email" required placeholder="Enter email"></div>
+    <div class="field"><label>Mobile Number *</label><input name="phone" type="tel" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit number"></div>
+    <div class="field"><label>College / Institution *</label><input name="college" required placeholder="College name"></div>
+    <div class="field"><label>Department *</label><input name="department" required placeholder="Your department"></div>
+    <div class="field"><label>Year of Study *</label><select name="year" required><option value="">Select year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Other</option></select></div>
+    <div class="field full"><label>Participation Type *</label><select name="type" id="type" required><option value="">Choose participation</option><option value="Individual">Individual</option><option value="Team">Team</option></select></div>
+    <div class="field full" id="teamFields"><label>Team Name *</label><input name="team" id="team" placeholder="Enter team name"></div>
+   </div>
+   <button class="submit" type="submit">Complete Registration →</button>
+  </form>
+  <div id="success">
+   <div style="font-size:55px">✅</div><h2>Registration Successful!</h2>
+   <p>Thank you for registering for QuizX.</p><p>Your Registration ID:</p>
+   <h3 id="regId"></h3><p>Please save your registration ID for future reference.</p>
+   <button class="btn" onclick="window.print()">Print Confirmation</button>
+  </div>
+ </div>
+</section>
+<footer><p>© 2026 QuizX | Online Quiz Competition</p><p style="margin-top:8px">Learn • Compete • Achieve</p></footer>
+<script>
+const typeSelect=document.getElementById("type");
+const teamFields=document.getElementById("teamFields");
+const teamInput=document.getElementById("team");
+typeSelect.addEventListener("change",()=>{
+ const isTeam=typeSelect.value==="Team";
+ teamFields.style.display=isTeam?"flex":"none";
+ teamInput.required=isTeam;
+});
+document.getElementById("registrationForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ const data=Object.fromEntries(new FormData(this).entries());
+ const registrationId="QZX"+Date.now().toString().slice(-8);
+ const registrations=JSON.parse(localStorage.getItem("quizRegistrations")||"[]");
+ registrations.push({...data,registrationId,registeredAt:new Date().toISOString()});
+ localStorage.setItem("quizRegistrations",JSON.stringify(registrations));
+ document.getElementById("regId").textContent=registrationId;
+ this.style.display="none";
+ document.getElementById("success").style.display="block";
+});
+</script>
+</body>
+</html>
